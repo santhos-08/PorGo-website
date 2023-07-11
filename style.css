@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+#navbar{
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: .5rem 5rem;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.5);
+    background: black;
+}
+.navbar .navbar-brand{
+    font-size: 25px;
+    font-weight: 800;
+    color: #2B65EC !important;
+}
+#nvbarSupportedContent a{
+    color: #2B65EC;
+    border-bottom : 2px solid transparent;
+}
+#navbarSupportedContent a:hover{
+    border-bottom : 2px solid #2B65EC;
+}
+#navbarSupportedContent button{
+    background: #2B65EC;
+    width: 5rem;
+    border-radius: 15px;
+     
+}
+section{
+    width:100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#home{
+    background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.4)),url('https://www.dnv.com/Images/20200702-Green-ports-reports-1000x500pxl_tcm8-179370.jpg');
+    background-size: cover;
+    background-position: center;
+    flex-direction: column;
+}
+#home h1{
+    font-size: 100px;
+    color: black;
+    letter-spacing: 3px;
+     font-family: Verdana, Geneva, Tahoma, Sans-serif;
+    text-shadow: 0px 1px 0px #CCC,
+                 0px 2px 0px #CCC,
+                 0px 3px 0px #CCC,
+                 0px 4px 0px #CCC,
+                 0px 5px 0px #CCC,
+                 0px 6px 0px #CCC,
+                 0px 7px 0px #CCC;
+}
+#home p{
+    font-size: 18px;
+    color: black;
+}
+#home .input-group{
+    width: 40%;
+    height: 45px;
+}
+.signin{
+    background: #2B65EC !important;
+    color: white !important;
+    box-shadow: 2px 4px 5px rgba(0,0,0,.3);
+}
+#about{
+    background: linear-gradient(to bottom,
+            #ffffff,
+            rgb(108, 206, 226),
+            rgb(58, 174, 203),
+            rgb(31, 167, 225) );
+}
+#about h1{
+    font-weight: 800;
+    font-size: 50px;
+    color:black;
+}
+#about p{
+    color:black;
+}
+#about img{
+    height: 80vh;
+}
+#ports{
+    background: #e5e5e5;
+}
+#ports h1{
+    font-size: 50px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+#ports img{
+    width: 200px;
+    height: 200px;
+}
+.card{
+    width: 250px;
+    height: 300px;
+    background: #e5e5e5 !important;
+    border: none !important;
+    box-shadow: 15px  20px 20px rgba(0,0,0,.3),
+                inset 4px 4px 10px white;
+    border-radius: 20px !important;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 60px;
+
+}
+.card:hover{
+    box-shadow: inset 5px  5px 10px rgba(0,0,0,.3),
+                inset -4px -4px 10px white;
+                transition: 2s;
+}
+#contact img{
+   height: 100%;
+}
+.box{
+    width:80% !important;
+    background-position:white;
+    margin-top:10px;
+}
+form{
+    display:flex;
+    flex-direction:column;
+}
+#contact input{
+    margin:10px 0px;
+
+}
+#contact textarea{
+    margin:10px 0px;
+}
+footer{
+   background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}

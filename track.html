@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Tracking</title>
+  <style>
+    *{
+      margin:0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+        font-family: Arial;
+        text-align: center;
+    }
+    .form-container{
+      width:60%;
+      height: fit-content;
+      margin: 10px;
+      border:3px solid black;
+      border-radius: 12px;
+      padding:10px;
+      position: relative;
+      background-color: aliceblue;
+      -webkit-box-shadow: 1px 1px 18px 2px rgba(0,0,0,0.75);
+      -moz-box-shadow: 1px 1px 18px 2px rgba(0,0,0,0.75);
+      box-shadow: 1px 1px 18px 2px rgba(0,0,0,0.75);
+    }
+      .form-row{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+      }
+    .container {
+      margin:0 auto;
+      display : flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height:100vh;
+      position: relative;
+      
+    }
+
+    .form-btn {
+      margin: 10px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .form-input {
+      width: 120%;
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #0082d8;
+      border-radius: 4px;
+      outline-offset: 2px;
+      outline-color: #0082d8;
+    }
+
+    .form-submit{
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 16px;
+      margin:10px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      background-color: #0082d8;
+      color: white;
+      border: none;
+      border-radius: 24px;
+      transition: background-color 1s ease;
+      cursor: pointer;
+    }
+    .form-group-submit{
+        display: flex;
+        justify-content: center;
+    }
+
+    .form-submit:hover{
+        background-color: #0082d8;
+        -webkit-box-shadow: 1px 0px 10px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 1px 0px 10px 0px rgba(0,0,0,0.75);
+      box-shadow: 1px 0px 10px 0px rgba(0,0,0,0.75);
+    }
+
+    .order-details {
+      margin-top: 20px;
+      border: 3px solid black;
+      border-radius: 14px;
+      padding: 10px;
+      width:60%;
+      display: none;
+      background-color: white;
+      -webkit-box-shadow: 1px 1px 18px 2px rgba(0,0,0,0.75);
+      -moz-box-shadow: 1px 1px 18px 2px rgba(0,0,0,0.75);
+      box-shadow: 1px 1px 18px 2px rgba(0,0,0,0.75);
+    }
+
+    .order-details h2 {
+      margin-top: 0;
+    }
+    .bg-image{
+      width:100%;
+      height: 100%;
+      display: inline;
+      z-index: -100;
+      position: absolute;
+    }
+    .order-details .delivery {
+      text-align: center;
+      margin:40px;
+    }
+
+    .order-details p {
+      margin: 10px;
+      background-color: aliceblue;
+      padding: 10px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width:50%;
+    }
+    .order-details strong{
+      margin-left: 50px;
+      width:50%;
+    }
+    .order-details .value{
+      margin-right: 50px;
+    }
+    .order-status-container {
+      margin-top: 50px;
+  z-index: 3;
+  display:flex;
+  width: 100%;
+  height: 10%;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
+  position: relative;
+  
+}
+
+.status-item {
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 110px;
+  padding-top: 10px;
+}
+.status-item > div {
+   margin: 10px;
+}
+.status-circle {
+  height: 20px;
+  width: 20px;
+  background-color: #0082d8;
+  border-radius: 50%;
+  border: 5px solid white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  z-index: 5;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.status-circle:hover {
+  transform: scale(1.2);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.status-text {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.status-text span {
+  display: block;
+  text-align: center;
+  padding: 2px;
+}
+.green {
+  color: #338A9A;
+}
+.first::before {
+  content:'';
+  height: 4px;
+  width: 380px;
+  background-color: #0082d8;
+  position:absolute;
+  z-index:4;
+  top: -5px;
+  left: 160px;
+}
+.second::before {
+  content:'';
+  height: 4px;
+  width: 590px;
+  background-color: #0082d8;
+  position:absolute;
+  z-index:4;
+  top: -5px;
+  left: 170px;
+  opacity:0.2;
+}
+
+    
+  </style>
+</head>
+<body>
+  <img src="C:\Users\dharaneeshwaranr35\Desktop\porgo recent\images\WhatsApp Image 2023-07-11 at 2.27.14 AM.jpeg"alt="bg" class="bg-image" />
+  <div class="container">
+
+      <div class="form-container">
+        <h1>TRACK YOUR ORDER!</h1>
+        <form >
+          <div class="form-row">
+            <div class="form-group">
+              <label for="order-number" class="form-label">Order Number:</label>
+              <input type="text" id="order-number" class="form-input" required>
+            </div>
+  
+            <div class="form-group">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" id="email" class="form-input" required>
+            </div>
+          </div>
+  
+            <div class="form-btn">
+              <input type="submit" value="Track Order" class="form-submit">
+            </div>
+        </form>
+        
+      </div>
+
+      <div class="order-details" id="order-details">
+        </div>
+    
+  </div>
+
+  
+
+  <script>
+
+    function trackOrder() {
+      // e.preventDefault();
+     var orderNumber = document.getElementById('order-number').value;
+      var email = document.getElementById('email').value;
+
+
+      var orderDetailsElement = document.getElementById('order-details');
+      orderDetailsElement.style.display = 'inline';
+      if(email && orderNumber){
+      orderDetailsElement.innerHTML = `
+        <h2>ORDER DETAILS :</h2>
+        <p><strong>Order Number:</strong> <span class="value">${orderNumber}</span></p>
+        <p><strong>Email:</strong> <span class="value">${email}</span></p>
+        <p><strong>Status:</strong> <span class="value">Shipping</span></p>
+        <p><strong>Tracking Number:</strong> <span class="value">ABC123456</span></p>
+        <p><strong>Quantity:</strong> <span class="value">1400</span></p>
+        <div class="order-status-container">
+          <div class="status-item first">
+            <div class="status-circle"></div>
+            <div class="status-text">
+              today
+            </div>
+           </div>
+           <div class="status-item second">
+            <div class="status-circle"></div>
+            <div class="status-text">
+              Shipped
+            </div>
+           </div>
+           <div class="status-item">
+             <div class="status-circle"></div>
+             <div class="status-text green">
+             <span>Out</span><span>for delivery</span>
+             </div>
+           </div>
+           <div class="status-item">
+             <div class="status-circle"></div>
+            <div class="status-text green">
+              <span>Ariving</span>
+              
+            </div>
+           </div>
+           </div>
+
+      `;
+          }
+          else{
+            orderDetailsElement.innerHTML ='<h2>Please Enter the Email and Order Number!</h2>'
+          }
+    }
+
+  
+    var formSubmitButton = document.querySelector('.form-submit');
+    formSubmitButton.addEventListener('click', function(event) {
+      event.preventDefault();
+      trackOrder();
+    });
+  </script>
+</body>
+</html>
